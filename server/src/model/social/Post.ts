@@ -1,6 +1,5 @@
-import { GraphQLURL } from "graphql-custom-types";
+import { PostDb } from "@prisma/client";
 import { Field, Int, ObjectType } from "type-graphql";
-import { User } from "../User";
 
 @ObjectType()
 export class Post {
@@ -13,9 +12,9 @@ export class Post {
   @Field(() => String)
   content: string;
 
-  @Field(() => GraphQLURL, { nullable: true })
-  url?: string;
-
-  @Field(() => User)
-  user: User;
+  constructor(post: PostDb) {
+    this.id = post.id;
+    this.title = post.title;
+    this.content = post.content;
+  }
 }

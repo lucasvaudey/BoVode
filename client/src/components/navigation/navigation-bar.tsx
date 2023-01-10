@@ -7,7 +7,7 @@ export default component$(() => {
       <a href="/nous">Nous</a>
       <a href="/realisations">Réalisations</a>
       <a href="/blog">Blog</a>
-      <a href="/contact">Prendre contact</a>
+      <a href="/contact">Contactez-nous</a>
     </div>
   );
 });

@@ -9,3 +9,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+@font-face {
+    font-family: "CerebriSansPro-Regular";
+    src: 
+     url("/fonts/CerebriSansPro-Regular.otf") format("truetype");
+    font-weight: bold;
+}
+body {
+    background-color: #EFD2D2;
+    font-family: 'CerebriSansPro-Regular', sans-serif;
+}

@@ -9,22 +9,31 @@ interface NavProps {
 export const NavigationHeader: React.FC<NavProps> = ({ showSignIn }) => {
   const { data: sessionData } = useSession();
 
-  // A react component navigation header for the app with the title, link to contact page, realisation page and a sign in button.
   return (
-    <Flex>
-      <Heading>BoVoDé</Heading>
+    <Flex p="5" alignItems={"center"}>
+      <Heading pr="5">
+        <Link href={"/"}>BoVoDé</Link>
+      </Heading>
       <Link href={"/about"}>
-        <Button>À propos</Button>
+        <Button mx="2.5" variant={"link"}>
+          À propos
+        </Button>
       </Link>
       <Link href={"/projects"}>
-        <Button>Projets</Button>
+        <Button mx="2.5" variant={"link"}>
+          Projets
+        </Button>
       </Link>
       <Link href={"/contact"}>
-        <Button>Contact</Button>
+        <Button mx="2.5" variant={"link"}>
+          Contact
+        </Button>
       </Link>
       <Spacer />
       <Link href={"/blog"}>
-        <Button>Blog</Button>
+        <Button mx="2.5" variant={"link"}>
+          Blog
+        </Button>
       </Link>
       {showSignIn ? (
         <Button

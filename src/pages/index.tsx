@@ -14,12 +14,10 @@ const Home: NextPage = () => {
         <meta name="description" content="BoVoDé Website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div>
+      <Box>
         <NavigationHeader />
-        <main className="">
-          <AuthShowcase />
-        </main>
-      </div>
+        <AuthShowcase />
+      </Box>
     </>
   );
 };

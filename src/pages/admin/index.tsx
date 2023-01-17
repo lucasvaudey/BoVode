@@ -23,7 +23,7 @@ const AdminPage: NextPage = () => {
     <Box>
       <NavigationHeader showSignIn={true} />
       <Heading>Admin</Heading>
-      <Link href={"/users"}>
+      <Link href={"/admin/users"}>
         <Button>Users</Button>
       </Link>
       <Button onClick={() => void handleSetAdmin()}>

@@ -10,4 +10,9 @@ export const adminRouter = createTRPCRouter({
         data: { admin: input.activate },
       });
     }),
+  users: adminProcedure
+    .input(z.object({ take: z.number(), skip: z.number() }))
+    .query(({ ctx, input }) => {
+      return ctx.prisma.user.findMany({ take: input.take, skip: input.skip });
+    }),
 });

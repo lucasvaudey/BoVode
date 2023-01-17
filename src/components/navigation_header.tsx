@@ -33,7 +33,7 @@ export const NavigationHeader: React.FC<NavProps> = ({ showSignIn }) => {
       {sessionData?.user?.admin ? (
         <Link href={"/admin"}>
           <Button mx="2.5" variant={"link"}>
-            Blog
+            Admin
           </Button>
         </Link>
       ) : null}

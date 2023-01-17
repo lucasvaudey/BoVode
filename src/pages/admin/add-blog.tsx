@@ -1,4 +1,12 @@
-import { Text, Box, Heading, Input, Textarea, Center } from "@chakra-ui/react";
+import {
+  Text,
+  Box,
+  Heading,
+  Input,
+  Textarea,
+  Button,
+  Center,
+} from "@chakra-ui/react";
 import ChakraUIRenderer from "chakra-ui-markdown-renderer";
 import type { NextPage } from "next";
 import { useState } from "react";
@@ -11,6 +19,11 @@ const AddBlogPage: NextPage = () => {
   const [area, setArea] = useState("");
   const handleChange = (value: string) => setValue(value);
   const handleArea = (value: string) => setArea(value);
+  function publishPost(): void {
+    const mutation = "todo";
+    console.log(mutation);
+  }
+
   return (
     <Box>
       <NavigationHeader showSignIn={true} />
@@ -27,14 +40,13 @@ const AddBlogPage: NextPage = () => {
         value={area}
         onChange={(event) => handleArea(event.target.value)}
       />
-      <Heading>Preview</Heading>
       <Center>
-        <Box>
-          <ReactMarkdown components={ChakraUIRenderer(mdTheme)}>
-            {area}
-          </ReactMarkdown>
-        </Box>
+        <Button onClick={() => publishPost()}>Publier !</Button>
       </Center>
+      <Heading>Preview</Heading>
+      <ReactMarkdown components={ChakraUIRenderer(mdTheme)}>
+        {area}
+      </ReactMarkdown>
     </Box>
   );
 };

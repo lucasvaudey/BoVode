@@ -5,4 +5,7 @@ export const theme = extendTheme({
   colors: {
     primary: "#FFBA08",
   },
+  Text: {
+    color: "#FFFFFF",
+  },
 });

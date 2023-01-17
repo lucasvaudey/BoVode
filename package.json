@@ -20,11 +20,13 @@
     "@trpc/next": "^10.9.0",
     "@trpc/react-query": "^10.9.0",
     "@trpc/server": "^10.9.0",
+    "chakra-ui-markdown-renderer": "^4.1.0",
     "framer-motion": "^8.4.3",
     "next": "13.1.2",
     "next-auth": "^4.18.8",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-markdown": "^8.0.4",
     "superjson": "1.12.2",
     "zod": "^3.20.2"
   },

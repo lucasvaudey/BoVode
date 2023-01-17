@@ -2,12 +2,17 @@ import { Box, Button, Heading } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import Router from "next/router";
+import { useEffect } from "react";
 import { NavigationHeader } from "../../components/navigation_header";
-import { api } from "../../utils/api";
 
 const AdminPage: NextPage = () => {
   const { data: dataSession } = useSession();
-  const mutation = api.admin.toggleAdmin.useMutation();
+  useEffect(() => {
+    if (!dataSession?.user?.admin) {
+      Router.push("/").catch((e) => console.error(e));
+    }
+  });
   if (!dataSession?.user?.admin) {
     return (
       <Box>
@@ -16,19 +21,16 @@ const AdminPage: NextPage = () => {
       </Box>
     );
   }
-  const handleSetAdmin = () => {
-    mutation.mutate({ activate: true, id: "clcyijro50000qrwxun7kx62c" });
-  };
   return (
     <Box>
       <NavigationHeader showSignIn={true} />
       <Heading>Admin</Heading>
       <Link href={"/admin/users"}>
-        <Button>Users</Button>
+        <Button m="0.5">Users</Button>
       </Link>
-      <Button onClick={() => void handleSetAdmin()}>
-        Set Lucas User to admin :
-      </Button>
+      <Link href={"/admin/add-blog"}>
+        <Button m="0.5">Add Blog Post</Button>
+      </Link>
     </Box>
   );
 };

@@ -1,22 +1,8 @@
-import type { Post } from ".prisma/client";
-import {
-  Box,
-  Button,
-  Center,
-  Heading,
-  Text,
-  Input,
-  Textarea,
-  CircularProgress,
-} from "@chakra-ui/react";
-import ChakraUIRenderer from "chakra-ui-markdown-renderer";
+import { Box, Heading, CircularProgress } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
-import { useState } from "react";
-import ReactMarkdown from "react-markdown";
 import { EditComponent } from "../../../components/edit_component";
 import { NavigationHeader } from "../../../components/navigation_header";
-import { mdTheme } from "../../../styles/mdTheme";
 import { api } from "../../../utils/api";
 
 const EditPost: NextPage = () => {

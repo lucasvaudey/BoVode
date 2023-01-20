@@ -68,9 +68,10 @@ model VerificationToken {
 }
 
 model Post {
-    id      Int    @id @default(autoincrement())
-    title   String @db.Text
-    content String @db.Text
-    user    User   @relation(fields: [userId], references: [id])
-    userId  String
+    id        Int    @id @default(autoincrement())
+    title     String @db.Text
+    content   String @db.Text
+    thumbnail String @db.Text
+    user      User   @relation(fields: [userId], references: [id])
+    userId    String
 }

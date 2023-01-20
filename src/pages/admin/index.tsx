@@ -28,8 +28,11 @@ const AdminPage: NextPage = () => {
       <Link href={"/admin/users"}>
         <Button m="0.5">Users</Button>
       </Link>
-      <Link href={"/admin/add-blog"}>
+      <Link href={"/admin/add-post"}>
         <Button m="0.5">Add Blog Post</Button>
+      </Link>
+      <Link href={"/admin/manage-posts"}>
+        <Button m="0.5">Manage Posts</Button>
       </Link>
     </Box>
   );

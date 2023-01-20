@@ -37,6 +37,7 @@ export const postRouter = createTRPCRouter({
       return ctx.prisma.post.findMany({
         skip: input.skip ?? undefined,
         take: input.take ?? undefined,
+        include: { user: { select: { name: true } } },
       });
     }),
 

@@ -12,7 +12,7 @@ const Blog: NextPage = () => {
       <Heading>Blog</Heading>
       {posts?.map((post) => (
         <Box key={post.id}>
-          <Link href={"/blog/${post.id}"}>
+          <Link href={`/blog/${post.id}`}>
             <Button>{post.title}</Button>
           </Link>
         </Box>

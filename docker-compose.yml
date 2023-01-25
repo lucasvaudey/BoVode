@@ -4,7 +4,7 @@ services:
     image: postgres:15
     container_name: bovode-postgres
     ports:
-      - 6770:6770
+      - 5432:5432
     volumes:
       - postgres:/var/lib/postgres/data
     environment:
@@ -13,4 +13,4 @@ services:
       - POSTGRES_DB=${POSTGRES_DB}
 volumes:
   postgres:
-    name: bovode-db
+    name: bovode-postgres

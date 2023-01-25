@@ -1,4 +1,3 @@
-import { Box, Button, Heading } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
@@ -15,26 +14,26 @@ const AdminPage: NextPage = () => {
   });
   if (!dataSession?.user?.admin) {
     return (
-      <Box>
+      <div>
         <NavigationHeader showSignIn={true} />
-        <Heading>Pas autorisé</Heading>
-      </Box>
+        <h1>Pas autorisé</h1>
+      </div>
     );
   }
   return (
-    <Box>
+    <div>
       <NavigationHeader showSignIn={true} />
-      <Heading>Admin</Heading>
+      <h1>Admin</h1>
       <Link href={"/admin/users"}>
-        <Button m="0.5">Users</Button>
+        <button className="px-5">Users</button>
       </Link>
       <Link href={"/admin/add-post"}>
-        <Button m="0.5">Add Blog Post</Button>
+        <button className="px-5">Add Blog Post</button>
       </Link>
       <Link href={"/admin/manage-posts"}>
-        <Button m="0.5">Manage Posts</Button>
+        <button className="mx-5">Manage Posts</button>
       </Link>
-    </Box>
+    </div>
   );
 };
 

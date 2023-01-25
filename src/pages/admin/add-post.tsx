@@ -1,4 +1,3 @@
-import { Box, Heading } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { EditComponent } from "../../components/edit_component";
@@ -10,11 +9,11 @@ const AddBlogPage: NextPage = () => {
       <Head>
         <title>Ajouter un post</title>
       </Head>
-      <Box>
+      <div>
         <NavigationHeader showSignIn={true} />
-        <Heading>Add Blog Post</Heading>
+        <h1>Add Blog Post</h1>
         <EditComponent edit={false} />
-      </Box>
+      </div>
     </>
   );
 };

@@ -1,14 +1,3 @@
-import {
-  Box,
-  Button,
-  Table,
-  TableCaption,
-  Tbody,
-  Td,
-  Th,
-  Thead,
-  Tr,
-} from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Link from "next/link";
 import { useRouter } from "next/router";
@@ -29,45 +18,40 @@ const ManagePosts: NextPage = () => {
   }
 
   return (
-    <Box>
+    <div>
       <NavigationHeader />
-      <Table>
-        <TableCaption>All Blogs Posts</TableCaption>
-        <Thead>
-          <Tr>
-            <Th>Blog ID</Th>
-            <Th>author</Th>
-            <Th>title</Th>
-            <Th>Action</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
+      <table>
+        <caption>All Blogs Posts</caption>
+        <thead>
+          <tr>
+            <th>Blog ID</th>
+            <th>author</th>
+            <th>title</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
           {posts?.map((post) => (
-            <Tr key={post.id}>
-              <Td>{post.id}</Td>
-              <Td>{post.user.name}</Td>
-              <Td>{post.title}</Td>
-              <Td>
-                <Box>
-                  <Button onClick={() => void pushEdit(post.id)}>Edit</Button>
-                  <Button onClick={() => void deletePost(post.id)}>
+            <tr key={post.id}>
+              <td>{post.id}</td>
+              <td>{post.user.name}</td>
+              <td>{post.title}</td>
+              <td>
+                <div>
+                  <button onClick={() => void pushEdit(post.id)}>Edit</button>
+                  <button onClick={() => void deletePost(post.id)}>
                     Delete
-                  </Button>
-                </Box>
-              </Td>
-            </Tr>
+                  </button>
+                  <Link href={`/blog/${post.id}`}>
+                    <button>Lien</button>
+                  </Link>
+                </div>
+              </td>
+            </tr>
           ))}
-        </Tbody>
-      </Table>
-
-      {posts?.map((post) => (
-        <Box key={post.id}>
-          <Link href={`/blog/${post.id}`}>
-            <Button>{post.title}</Button>
-          </Link>
-        </Box>
-      ))}
-    </Box>
+        </tbody>
+      </table>
+    </div>
   );
 };
 

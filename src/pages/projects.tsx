@@ -1,13 +1,12 @@
-import { Box, Heading } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import { NavigationHeader } from "../components/navigation_header";
 
 const Projects: NextPage = () => {
   return (
-    <Box>
+    <div>
       <NavigationHeader />
-      <Heading>Projects</Heading>
-    </Box>
+      <h1>Projects</h1>
+    </div>
   );
 };
 

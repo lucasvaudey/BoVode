@@ -1,22 +1,25 @@
 import { type AppType } from "next/app";
 import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
-import { ChakraProvider } from "@chakra-ui/react";
 
 import { api } from "../utils/api";
 
-import { theme } from "../styles/theme";
+import "../styles/global.css";
+
+import { Sofia_Sans } from "@next/font/google";
+
+const sofia = Sofia_Sans({ subsets: ["latin"], variable: "--font-sofia" });
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
   return (
-    <ChakraProvider theme={theme}>
+    <main className={`${sofia.className} font-sans`}>
       <SessionProvider session={session}>
         <Component {...pageProps} />
       </SessionProvider>
-    </ChakraProvider>
+    </main>
   );
 };
 

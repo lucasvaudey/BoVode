@@ -1,11 +1,8 @@
-import { Box } from "@chakra-ui/react";
-import ChakraUIRenderer from "chakra-ui-markdown-renderer";
 import type { NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { NavigationHeader } from "../../components/navigation_header";
-import { mdTheme } from "../../styles/mdTheme";
 import { api } from "../../utils/api";
 
 const BlogPostPage: NextPage = () => {
@@ -18,12 +15,12 @@ const BlogPostPage: NextPage = () => {
       <Head>
         <title>{blog?.title}</title>
       </Head>
-      <Box>
+      <div>
         <NavigationHeader />
-        <ReactMarkdown components={ChakraUIRenderer(mdTheme)}>
-          {blog?.content ?? ""}
-        </ReactMarkdown>
-      </Box>
+        <div>
+          <ReactMarkdown>{blog?.content ?? ""}</ReactMarkdown>
+        </div>
+      </div>
     </>
   );
 };

@@ -1,4 +1,3 @@
-import { Box, Button, Heading } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import Link from "next/link";
 import { NavigationHeader } from "../../components/navigation_header";
@@ -7,17 +6,17 @@ import { api } from "../../utils/api";
 const Blog: NextPage = () => {
   const { data: posts } = api.posts.posts.useQuery({});
   return (
-    <Box>
+    <div>
       <NavigationHeader showSignIn={true} />
-      <Heading>Blog</Heading>
+      <h1>Blog</h1>
       {posts?.map((post) => (
-        <Box key={post.id}>
+        <div key={post.id}>
           <Link href={`/blog/${post.id}`}>
-            <Button>{post.title}</Button>
+            <button>{post.title}</button>
           </Link>
-        </Box>
+        </div>
       ))}
-    </Box>
+    </div>
   );
 };
 

@@ -1,4 +1,3 @@
-import { Box, Heading, CircularProgress } from "@chakra-ui/react";
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import { EditComponent } from "../../../components/edit_component";
@@ -14,17 +13,17 @@ const EditPost: NextPage = () => {
   });
 
   return (
-    <Box>
+    <div>
       <NavigationHeader />
-      <Heading>Edit Post</Heading>
+      <h1>Edit Post</h1>
       {isLoading ? (
-        <CircularProgress isIndeterminate />
+        <p>Loading....</p>
       ) : blog ? (
         <EditComponent postId={parseInt(postId)} post={blog} edit />
       ) : (
         <>Error</>
       )}
-    </Box>
+    </div>
   );
 };
 

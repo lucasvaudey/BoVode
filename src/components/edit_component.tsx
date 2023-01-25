@@ -1,10 +1,7 @@
-import { Text, Input, Textarea, Center, Button, Alert } from "@chakra-ui/react";
 import type { Post } from "@prisma/client";
-import ChakraUIRenderer from "chakra-ui-markdown-renderer";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import ReactMarkdown from "react-markdown";
-import { mdTheme } from "../styles/mdTheme";
 import { api } from "../utils/api";
 
 interface EditComponentProps {
@@ -37,35 +34,33 @@ export const EditComponent: React.FC<EditComponentProps> = ({
         content: area,
       });
     } else {
-      addblog.mutate({ title: title, content: area, thumbnail: "" });
+      addblog.mutate({ title: title, content: area, thumbnail: thumb });
     }
     router.push("/admin/manage-posts").catch((e) => console.error(e));
   }
   return (
     <>
-      <Input
+      <input
         placeholder="Titre du blog"
         value={title}
         onChange={(event) => setTitle(event.target.value)}
       />
-      <Input
+      <input
         placeholder="Mignature du billet de blog"
         value={thumb}
         onChange={(event) => setThumb(event.target.value)}
       />
-      <Text>Contenu au format .MD : {area}</Text>
-      <Textarea
+      <p>Contenu au format .MD :</p>
+      <textarea
         placeholder="Titre du blog"
         value={area}
         onChange={(event) => setArea(event.target.value)}
       />
-      <Center>
-        <Button onClick={() => saveEditPost()}>Sauvegarder !</Button>
-      </Center>
-      {error.length > 0 ? <Alert status="error">{error}</Alert> : <></>}
-      <ReactMarkdown components={ChakraUIRenderer(mdTheme)}>
-        {area}
-      </ReactMarkdown>
+      <center>
+        <button onClick={() => saveEditPost()}>Sauvegarder !</button>
+      </center>
+      {error.length > 0 ? <p className="text-red">{error}</p> : <></>}
+      <ReactMarkdown>{area}</ReactMarkdown>
     </>
   );
 };

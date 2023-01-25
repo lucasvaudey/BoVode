@@ -3,7 +3,6 @@ import Head from "next/head";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 import { NavigationHeader } from "../components/navigation_header";
-import { Box, Button, Text } from "@chakra-ui/react";
 
 const Home: NextPage = () => {
   return (
@@ -13,10 +12,10 @@ const Home: NextPage = () => {
         <meta name="description" content="BoVoDé Website" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Box>
+      <div>
         <NavigationHeader />
         <AuthShowcase />
-      </Box>
+      </div>
     </>
   );
 };
@@ -27,17 +26,15 @@ const AuthShowcase: React.FC = () => {
   const { data: sessionData } = useSession();
 
   return (
-    <Box m={"auto"}>
-      <Text>
-        {sessionData && <span>Logged in as {sessionData.user?.name}</span>}
-      </Text>
-      <Button
+    <div className="mx-auto">
+      <p>{sessionData && <span>Logged in as {sessionData.user?.name}</span>}</p>
+      <button
         onClick={
           sessionData ? () => void signOut() : () => void signIn("google")
         }
       >
         {sessionData ? "Sign out" : "Sign in"}
-      </Button>
-    </Box>
+      </button>
+    </div>
   );
 };

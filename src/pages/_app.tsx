@@ -4,18 +4,21 @@ import { SessionProvider } from "next-auth/react";
 
 import { api } from "../utils/api";
 
-import "../styles/global.css";
+import "../styles/globals.css";
 
-import { Sofia_Sans } from "@next/font/google";
+import { Space_Grotesk } from "@next/font/google";
 
-const sofia = Sofia_Sans({ subsets: ["latin"], variable: "--font-sofia" });
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  variable: "--font-grotesk",
+});
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
   return (
-    <main className={`${sofia.className} font-sans`}>
+    <main className={`${spaceGrotesk.className}`}>
       <SessionProvider session={session}>
         <Component {...pageProps} />
       </SessionProvider>
